@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @participation.player %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @participation.result %>
+</p>
+
+<p>
+  <strong>Bet:</strong>
+  <%= @participation.bet %>
+</p>
+
+<%= link_to 'Edit', edit_participation_path(@participation) %> |
+<%= link_to 'Back', participations_path %>

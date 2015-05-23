@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+hans:
+  name: Hans
+  email: hans@foo.bar
+  password_digest: <%= BCrypt::Password.create('secret') %>
+  points: 12
+
+klaus:
+  name: Klaus
+  email: klaus@foo.bar
+  password_digest: <%= BCrypt::Password.create('secret') %>
+  points: 3
+
+werner:
+  name: Werner
+  email: werner@foo.bar
+  password_digest: <%= BCrypt::Password.create('secret') %>
+  points: 0

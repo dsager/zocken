@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+funny_bet:
+  title: Some funny bet
+  description: This bet should be fun for everyone!
+  status: 1
+
+crazy_bet:
+  title: Seriously crazy bet
+  description: I got no words, this is so creazy!
+  status: 1

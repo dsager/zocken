@@ -1,0 +1,6 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+klaus_funny_bet:
+  player: klaus
+  result: funny_bet_result_yes
+  bet: funny_bet

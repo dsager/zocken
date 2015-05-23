@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+funny_bet_result_yes:
+  title: Yes
+  description: The funny thing is true!
+  is_true: null
+  bet: funny_bet
+
+funny_bet_result_no:
+  title: No
+  description: This is a lie!
+  is_true: null
+  bet: funny_bet
