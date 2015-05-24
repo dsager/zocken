@@ -3,17 +3,17 @@
 hans:
   name: Hans
   email: hans@foo.bar
-  password_digest: <%= BCrypt::Password.create('secret') %>
+  encrypted_password: <%= Devise::Encryptor.digest(Player, 'secret') %>
   points: 12
 
 klaus:
   name: Klaus
   email: klaus@foo.bar
-  password_digest: <%= BCrypt::Password.create('secret') %>
+  encrypted_password: <%= Devise::Encryptor.digest(Player, 'secret') %>
   points: 3
 
 werner:
   name: Werner
   email: werner@foo.bar
-  password_digest: <%= BCrypt::Password.create('secret') %>
+  encrypted_password: <%= Devise::Encryptor.digest(Player, 'secret') %>
   points: <%= Rails.configuration.x.players.min_points %>

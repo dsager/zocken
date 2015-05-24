@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :players
+  get 'home/index'
+
   #
-  resources :players
+  root to: 'home#index'
+  resources :players, except: [:create, :new]
   resources :bets
   resources :participations
   resources :results

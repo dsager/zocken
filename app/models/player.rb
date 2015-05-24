@@ -1,5 +1,8 @@
 class Player < ActiveRecord::Base
-  has_secure_password
+  # Include default devise modules. Others available are:
+  # :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+         :trackable, :validatable, :confirmable, :lockable
   has_many :participations, dependent: :destroy
 
   # @return [String]
@@ -22,7 +25,6 @@ class Player < ActiveRecord::Base
   def decrease_points
     if self.points > Rails.configuration.x.players.min_points
       self.points = points - 1
-      self.save
     else
       true
     end
@@ -30,7 +32,6 @@ class Player < ActiveRecord::Base
 
   def increase_points
     self.points = points + 1
-    self.save
   end
 
 end
