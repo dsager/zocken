@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523172824) do
+ActiveRecord::Schema.define(version: 20150523223150) do
 
   create_table "bets", force: :cascade do |t|
     t.string   "title",       null: false
@@ -48,10 +48,11 @@ ActiveRecord::Schema.define(version: 20150523172824) do
   create_table "results", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.boolean  "is_true"
+    t.boolean  "is_correct"
     t.integer  "bet_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "participations_count"
   end
 
   add_index "results", ["bet_id"], name: "index_results_on_bet_id"

@@ -22,7 +22,7 @@ class ResultsControllerTest < ActionController::TestCase
            result: {
              bet_id: @result.bet_id,
              description: @result.description,
-             is_true: @result.is_true,
+             is_correct: @result.is_correct,
              title: @result.title }
     end
 
@@ -45,7 +45,7 @@ class ResultsControllerTest < ActionController::TestCase
           result: {
             bet_id: @result.bet_id,
             description: @result.description,
-            is_true: @result.is_true,
+            is_correct: @result.is_correct,
             title: @result.title }
     assert_redirected_to result_path(assigns(:result))
   end
