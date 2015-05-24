@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ResultsControllerTest < ActionController::TestCase
   setup do
+    assert sign_in(players(:klaus))
     @result = results(:funny_bet_result_yes)
   end
 

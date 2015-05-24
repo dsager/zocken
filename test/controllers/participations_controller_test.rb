@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ParticipationsControllerTest < ActionController::TestCase
   setup do
+    assert sign_in(players(:klaus))
     @participation = participations(:klaus_funny_bet)
   end
 
