@@ -3,6 +3,7 @@ require 'test_helper'
 class BetsControllerTest < ActionController::TestCase
   setup do
     @bet = bets(:funny_bet)
+    assert sign_in(players(:klaus))
   end
 
   test "should get index" do
@@ -11,9 +12,17 @@ class BetsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:bets)
   end
 
+  test "not authenticated should not get :index" do
+    not_authenticated :get, :index
+  end
+
   test "should get new" do
     get :new
     assert_response :success
+  end
+
+  test "not authenticated should not get :new" do
+    not_authenticated :get, :new
   end
 
   test "should create bet" do

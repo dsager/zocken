@@ -4,16 +4,19 @@ hans:
   name: Hans
   email: hans@foo.bar
   encrypted_password: <%= Devise::Encryptor.digest(Player, 'secret') %>
+  confirmed_at: <%= Time.now %>
   points: 12
 
 klaus:
   name: Klaus
   email: klaus@foo.bar
   encrypted_password: <%= Devise::Encryptor.digest(Player, 'secret') %>
+  confirmed_at: <%= Time.now %>
   points: 3
 
 werner:
   name: Werner
   email: werner@foo.bar
   encrypted_password: <%= Devise::Encryptor.digest(Player, 'secret') %>
+  confirmed_at: <%= Time.now %>
   points: <%= Rails.configuration.x.players.min_points %>

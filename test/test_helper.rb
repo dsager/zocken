@@ -2,6 +2,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require "minitest/mock"
+require "controllers/shared/no_auth_test"
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -12,4 +13,5 @@ end
 
 class ActionController::TestCase
   include Devise::TestHelpers
+  include NoAuthTest
 end
