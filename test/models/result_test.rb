@@ -7,16 +7,14 @@ class ResultTest < ActiveSupport::TestCase
   end
 
   test '#bet_closed notifies each participant with true' do
-    @result.is_correct = true
     participation = MiniTest::Mock.new
-    participation.expect(:bet_closed, true, [true])
+    participation.expect(:bet_closed, true)
     @result.stub(:participations, [participation]) { assert @result.bet_closed }
   end
 
   test '#bet_closed notifies each participant with false' do
-    @result.is_correct = false
     participation = MiniTest::Mock.new
-    participation.expect(:bet_closed, true, [false])
+    participation.expect(:bet_closed, true)
     @result.stub(:participations, [participation]) { assert @result.bet_closed }
   end
 end

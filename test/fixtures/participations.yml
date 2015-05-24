@@ -7,7 +7,7 @@ klaus_funny_bet:
 
 hans_funny_bet:
   player: hans
-  result: funny_bet_result_yes
+  result: funny_bet_result_no
   bet: funny_bet
 
 werner_funny_bet:

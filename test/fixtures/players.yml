@@ -16,4 +16,4 @@ werner:
   name: Werner
   email: werner@foo.bar
   password_digest: <%= BCrypt::Password.create('secret') %>
-  points: 0
+  points: <%= Rails.configuration.x.players.min_points %>

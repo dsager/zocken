@@ -1,0 +1,3 @@
+# app configuration
+# TODO: this should come from a yaml file...
+Zocken::Application.config.x.players.min_points = 1
