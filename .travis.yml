@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+  - 2.0
+  - 2.1
+  - 2.2
+  - ruby-head
+  - jruby
+  - rbx
+matrix:
+  fast_finish: true
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: rbx
+    - rvm: jruby
+script: bundle exec rake test
