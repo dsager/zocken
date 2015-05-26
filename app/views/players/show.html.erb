@@ -15,6 +15,7 @@
   <%= @player.points %>
 </p>
 
+<%= link_to 'Participations', player_participations_path(@player) %> |
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to "Change password", edit_player_registration_path %>
 <%= link_to 'Back', players_path %>

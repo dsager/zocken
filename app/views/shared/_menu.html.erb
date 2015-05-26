@@ -1,21 +1,19 @@
 <ul>
     <li><%= link_to 'bets', bets_path %></li>
-    <li><%= link_to 'players', players_path %></li>
-    <li><%= link_to 'results', results_path %></li>
-    <li><%= link_to 'participations', participations_path %></li>
-    <% if player_signed_in? %>
-      <li>
-          <ul>
+    <li>
+        <%= link_to 'players', players_path %>
+        <ul>
+          <% if player_signed_in? %>
             <li><%=
                 link_to current_player.name, player_path(current_player)
             %></li>
             <li><%=
                 link_to 'sign out', destroy_player_session_path, method: 'delete'
             %></li>
-          </ul>
-      </li>
-    <% else %>
-      <li><%= link_to 'sign in', new_player_session_path %></li>
-    <% end %>
+          <% else %>
+            <li><%= link_to 'sign in', new_player_session_path %></li>
+          <% end %>
+        </ul>
+    </li>
 
 </ul>

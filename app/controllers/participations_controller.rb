@@ -1,10 +1,11 @@
 class ParticipationsController < ApplicationController
+  before_action :set_player
   before_action :set_participation, only: [:show, :edit, :update, :destroy]
 
   # GET /participations
   # GET /participations.json
   def index
-    @participations = Participation.all
+    @participations = @player.participations.all
   end
 
   # GET /participations/1
@@ -14,7 +15,7 @@ class ParticipationsController < ApplicationController
 
   # GET /participations/new
   def new
-    @participation = Participation.new
+    @participation = @player.participations.new
   end
 
   # GET /participations/1/edit
@@ -24,11 +25,11 @@ class ParticipationsController < ApplicationController
   # POST /participations
   # POST /participations.json
   def create
-    @participation = Participation.new(participation_params)
+    @participation = @player.participations.new(participation_params)
 
     respond_to do |format|
       if @participation.save
-        format.html { redirect_to @participation, notice: 'Participation was successfully created.' }
+        format.html { redirect_to player_participation_path(@player, @participation), notice: 'Participation was successfully created.' }
         format.json { render :show, status: :created, location: @participation }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class ParticipationsController < ApplicationController
   def update
     respond_to do |format|
       if @participation.update(participation_params)
-        format.html { redirect_to @participation, notice: 'Participation was successfully updated.' }
+        format.html { redirect_to player_participation_path(@player, @participation), notice: 'Participation was successfully updated.' }
         format.json { render :show, status: :ok, location: @participation }
       else
         format.html { render :edit }
@@ -56,19 +57,24 @@ class ParticipationsController < ApplicationController
   def destroy
     @participation.destroy
     respond_to do |format|
-      format.html { redirect_to participations_url, notice: 'Participation was successfully destroyed.' }
+      format.html { redirect_to player_participations_path(@player), notice: 'Participation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_participation
-      @participation = Participation.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def participation_params
-      params.require(:participation).permit(:player_id, :result_id, :bet_id)
-    end
+  def set_player
+    @player = Player.find(params[:player_id])
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_participation
+    @participation = @player.participations.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def participation_params
+    params.require(:participation).permit(:player_id, :result_id, :bet_id)
+  end
 end

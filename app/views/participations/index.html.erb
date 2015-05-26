@@ -15,12 +15,12 @@
   <tbody>
     <% @participations.each do |participation| %>
       <tr>
-        <td><%= participation.player %></td>
-        <td><%= participation.result %></td>
-        <td><%= participation.bet %></td>
-        <td><%= link_to 'Show', participation %></td>
-        <td><%= link_to 'Edit', edit_participation_path(participation) %></td>
-        <td><%= link_to 'Destroy', participation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= participation.player.name %></td>
+        <td><%= participation.result.title %></td>
+        <td><%= participation.bet.title %></td>
+        <td><%= link_to 'Show', player_participation_path(@player, participation) %></td>
+        <td><%= link_to 'Edit', edit_player_participation_path(@player, participation) %></td>
+        <td><%= link_to 'Destroy', player_participation_path(@player, participation), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Participation', new_participation_path %>
+<%= link_to 'New Participation', new_player_participation_path(@player) %>

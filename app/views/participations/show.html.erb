@@ -15,5 +15,5 @@
   <%= @participation.bet %>
 </p>
 
-<%= link_to 'Edit', edit_participation_path(@participation) %> |
-<%= link_to 'Back', participations_path %>
+<%= link_to 'Edit', edit_player_participation_path(@player, @participation) %> |
+<%= link_to 'Back', player_participations_path(@player) %>
