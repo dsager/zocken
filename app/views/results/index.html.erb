@@ -19,10 +19,13 @@
         <td><%= result.title %></td>
         <td><%= result.description %></td>
         <td><%= result.is_correct %></td>
-        <td><%= result.bet %></td>
-        <td><%= link_to 'Show', result %></td>
-        <td><%= link_to 'Edit', edit_result_path(result) %></td>
-        <td><%= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= result.bet.title %></td>
+        <td><%= link_to 'Show', bet_result_path(@bet, result) %></td>
+        <td><%= link_to 'Edit', edit_bet_result_path(@bet, result) %></td>
+        <td>
+            <%= link_to 'Destroy', bet_result_path(@bet, result),
+                        method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Result', new_result_path %>
+<%= link_to 'New Result', new_bet_result_path(@bet) %>

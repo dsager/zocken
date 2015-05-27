@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :participations
   end
 
-  resources :bets
-  resources :results
+  resources :bets do
+    resources :results
+  end
 end
