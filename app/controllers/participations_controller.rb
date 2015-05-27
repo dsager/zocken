@@ -2,62 +2,69 @@ class ParticipationsController < ApplicationController
   before_action :set_player
   before_action :set_participation, only: [:show, :edit, :update, :destroy]
 
-  # GET /participations
-  # GET /participations.json
+  # GET /players/1/participations
+  # GET /players/1/participations.json
   def index
     @participations = @player.participations.all
   end
 
-  # GET /participations/1
-  # GET /participations/1.json
+  # GET /players/1/participations/1
+  # GET /players/1/participations/1.json
   def show
   end
 
-  # GET /participations/new
+  # GET /players/1/participations/new
   def new
     @participation = @player.participations.new
   end
 
-  # GET /participations/1/edit
+  # GET /players/1/participations/1/edit
   def edit
   end
 
-  # POST /participations
-  # POST /participations.json
+  # POST /players/1/participations
+  # POST /players/1/participations.json
   def create
     @participation = @player.participations.new(participation_params)
 
     respond_to do |format|
       if @participation.save
-        format.html { redirect_to player_participation_path(@player, @participation), notice: 'Participation was successfully created.' }
-        format.json { render :show, status: :created, location: @participation }
+        format.html { redirect_to player_participation_path(@player, @participation),
+                                  notice: 'Participation was successfully created.' }
+        format.json { render :show, status: :created,
+                             location: player_participation_path(@player, @participation) }
       else
         format.html { render :new }
-        format.json { render json: @participation.errors, status: :unprocessable_entity }
+        format.json { render json: @participation.errors,
+                             status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /participations/1
-  # PATCH/PUT /participations/1.json
+  # PATCH/PUT /players/1/participations/1
+  # PATCH/PUT /players/1/participations/1.json
   def update
     respond_to do |format|
       if @participation.update(participation_params)
-        format.html { redirect_to player_participation_path(@player, @participation), notice: 'Participation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @participation }
+        format.html { redirect_to player_participation_path(@player, @participation),
+                                  notice: 'Participation was successfully updated.' }
+        format.json { render :show, status: :ok,
+                             location: player_participation_path(@player, @participation) }
       else
         format.html { render :edit }
-        format.json { render json: @participation.errors, status: :unprocessable_entity }
+        format.json { render json: @participation.errors,
+                             status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /participations/1
-  # DELETE /participations/1.json
+  # DELETE /players/1/participations/1
+  # DELETE /players/1/participations/1.json
   def destroy
     @participation.destroy
     respond_to do |format|
-      format.html { redirect_to player_participations_path(@player), notice: 'Participation was successfully destroyed.' }
+      format.html { redirect_to player_participations_path(@player),
+                                notice: 'Participation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
