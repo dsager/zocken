@@ -11,3 +11,6 @@ matrix:
 script:
   - bundle exec rake db:reset RAILS_ENV=test
   - bundle exec rake test RAILS_ENV=test
+addons:
+  code_climate:
+    repo_token: 7ad24d5eaa95e9f2f6a96b98b7cdb8216ecffd37bf2f827a0d29f7942f64a116
